@@ -21,64 +21,72 @@ class WelcomeScreen extends Component
       active: 'true',
       flatListProps: [
           {
+            id: '1',
             name: 'Hello World',
             category: 'important',
-            date: '2000-09-09',
+            date: '2000-09-09 00:00',
             content: 'lorem ipsum dolor sit amet bla bla bla'
           }, 
           {
+              id: '2',
               name: 'Hello World',
               category: 'important',
-              date: '2000-09-09',
+              date: '2000-09-09 00:00',
               content: 'lorem ipsum dolor sit amet bla bla bla'
           }, 
           {
+              id: '3',
               name: 'Hello World',
               category: 'important',
-              date: '2000-09-09',
+              date: '2000-09-09 00:00',
               content: 'lorem ipsum dolor sit amet bla bla bla'
           }, 
           {
+              id: '4',
               name: 'Hello World',
               category: 'important',
-              date: '2000-09-09',
+              date: '2000-09-09 00:00',
               content: 'lorem ipsum dolor sit amet bla bla bla'
           }, 
           {
+              id: '5',
               name: 'Hello World',
               category: 'important',
-              date: '2000-09-09',
+              date: '2000-09-09 00:00',
               content: 'lorem ipsum dolor sit amet bla bla bla'
           }, 
           {
+              id: '6',
               name: 'Hello World',
               category: 'important',
-              date: '2000-09-09',
+              date: '2000-09-09 00:00',
               content: 'lorem ipsum dolor sit amet bla bla bla'
           }, 
           {
+              id: '7',
               name: 'Hello World',
               category: 'important',
-              date: '2000-09-09',
+              date: '2000-09-09 00:00',
               content: 'lorem ipsum dolor sit amet bla bla bla'
           }, 
           {
+              id: '8',
               name: 'Hello World',
               category: 'important',
-              date: '2000-09-09',
+              date: '2000-09-09 00:00',
               content: 'lorem ipsum dolor sit amet bla bla bla'
           }]
     }
   }
 
-  
+  _KeyExtractor = (item, index) => item.id;
   
   
   render()
   {
       let randomColor = () =>
       {
-        let colorLib = ['90CAF9', 'DCE775', 'B0BEC5', '9C27B0', '9575CD'];
+        let colorLib = ['B3E5FC', 'DCEDC8', 'B0BEC5', 'F0F4C3', 'FFE0B2', 'D1C4E9'];
 
         let randomizer = Math.floor(Math.random() * (5 - 0 + 1)) + 0;
 
@@ -102,6 +110,8 @@ class WelcomeScreen extends Component
                       style={{ marginTop: 80 }}
                       data={this.state.flatListProps}
                       numColumns={2}
+                      keyExtractor={this._KeyExtractor}
+                      
                       renderItem=
                         {({ item }) =>
                         
