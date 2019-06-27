@@ -26,18 +26,19 @@ export default class ModalE extends Component
     render()
     {
         return(
-            <TouchableOpacity activeOpacity={1} disabled={false} style={modalContentStyle.container}>
+            <TouchableOpacity onPress={() => this.closeModal()} style={modalContentStyle.container} activeOpacity={3}>
+            <TouchableOpacity disabled={true} >
                 <View style={[modalContentStyle.modal, {width: this.state.width - 80}]}>
                     <View style={modalContentStyle.textView}>
                         {/* <Text style={[modalContentStyle.text, {fontSize: 20}]}>Modal Header</Text> */}
+                            <TextInput
+                                style={{ height: 35, width: 250, marginBottom: 38, borderBottomColor: '#000', borderBottomWidth: 2, marginTop: 19 }}
+                                onChangeText={(text) => this.setState({ text })}
+                                value={this.state.categoryName}
+                                placeholder="Category Name"
+                            />
                         <TextInput
-                            style={{ height: 35, borderBottomColor: '#000', width: 250, marginBottom: 38, marginTop: 19 }}
-                            onChangeText={(text) => this.setState({ text })}
-                            value={this.state.categoryName}
-                            placeholder="Category Name"
-                        />
-                        <TextInput
-                            style={{ height: 35, borderColor: 'gray' }}
+                            style={{ height: 35, borderBottomColor: '#000', borderBottomWidth: 2, borderColor: 'gray' }}
                             onChangeText={(text) => this.setState({ text })}
                             value={this.state.categoryURL}
                             placeholder="Image URL"
@@ -45,15 +46,16 @@ export default class ModalE extends Component
                     </View>
                     <View style={modalContentStyle.buttonsView}>
                         <TouchableOpacity onPress={() => this.closeModal()} style={modalContentStyle.TouchableHighlight} underlayColor={'#f1f1f1'}>
-                            <Text style={[modalContentStyle.text]}>Cancel</Text>
+                            <Text style={[modalContentStyle.text]}>CANCEL</Text>
                         </TouchableOpacity>
 
-                        <TouchableHighlight onPress={() => this.closeModal()} style={modalContentStyle.TouchableHighlight}>
-                            <Text style={[modalContentStyle.text]}>Submit</Text>
-                        </TouchableHighlight>
+                        <TouchableOpacity onPress={() => this.closeModal()} style={modalContentStyle.TouchableHighlight}>
+                            <Text style={[modalContentStyle.text]}>ADD</Text>
+                        </TouchableOpacity>
                     </View>
                 </View>
             </TouchableOpacity>
+        </TouchableOpacity>
         )
     }
 }
@@ -63,7 +65,9 @@ const modalContentStyle = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        padding: 30
+        padding: 30,
+        backgroundColor: '#000',
+        opacity: 0.9
 
     },
     modal:{
@@ -74,7 +78,7 @@ const modalContentStyle = StyleSheet.create({
         alignItems: 'center',
         textAlign: 'center',
         backgroundColor: '#fff',
-        borderRadius: 5,
+        borderRadius: 5
     },
     text: {
         margin: 5,

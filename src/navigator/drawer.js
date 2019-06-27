@@ -36,6 +36,8 @@ export default class DrawerStyle extends Component
 
     // to cahnging modal visibility
     changeModalVisibility = (bool) => {
+        
+
         this.setState({ isModalVisible: bool });
     }
 
@@ -48,6 +50,7 @@ export default class DrawerStyle extends Component
 
 
         return(
+
             <View >
                 <Image source={require('../public/img/indonesia.jpg')} style={drawsStyles.pict}></Image>
                 <Text style={drawsStyles.names}>Harris Santoso</Text>
@@ -76,7 +79,7 @@ export default class DrawerStyle extends Component
                 </ScrollView>
 
                 {/* Modal to open dialog */}
-                <View style={{ opacity: 15 }}>
+                <View>
                     <Modal visible={this.state.isModalVisible} transparent={true} onRequestClose={() => this.changeModalVisibility(false)} animationType='fade'>
                             <ModalContent changeModalVisibility={this.changeModalVisibility} />
                     </Modal>
